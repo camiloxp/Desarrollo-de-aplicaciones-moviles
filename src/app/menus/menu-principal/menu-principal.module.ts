@@ -20,7 +20,6 @@ const routes: Routes = [
   {
     path:'',redirectTo:'menu-principal/menu-juegos'
   }
-
 ];
 
 @NgModule({
