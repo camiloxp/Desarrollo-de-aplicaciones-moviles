@@ -18,6 +18,17 @@
       </ng-container>
     </div>
     <ion-item>
+      <ion-label position="floating">Características:</ion-label>
+      <ion-input formControlName="caracteristicas"></ion-input>
+    </ion-item>
+    <div class="mensaje-error">
+      <ng-container *ngFor="let error of mensajesError.caracteristicas">
+        <div *ngIf="formCelular.get('caracteristicas').hasError(error.type) && (formCelular.get('caracteristicas').dirty || formCelular.get('caracteristicas').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
       <ion-radio-group formControlName="marca">
         <ion-list-header>
           <ion-label>Marca:</ion-label>
@@ -47,7 +58,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Precio:</ion-label>
-      <ion-input formControlName="precio"></ion-input>
+      <ion-input formControlName="precio" type="number"></ion-input>
     </ion-item>
     <div class="mensaje-error">
       <ng-container *ngFor="let error of mensajesError.precio">
@@ -57,6 +68,6 @@
       </ng-container>
     </div>
     <ion-button expand="full" color="success" (click)="mensajeAgregar()" [disabled]="!formCelular.valid">Agregar Celular</ion-button>
-    <ion-button expand="full" color="primary" routerLink="/menu-principal/menu-celulares">Volver al menu</ion-button>
+    <ion-button expand="full" color="primary" (click)="volverMenu()">Volver al menu</ion-button>
   </form>
 </ion-content>

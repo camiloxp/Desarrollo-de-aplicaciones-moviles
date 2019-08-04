@@ -10,7 +10,6 @@ import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 export class LoginPage {
 
   formHome:FormGroup;
-  mensajError:string;
   constructor(private formBuilder:FormBuilder,private router:Router) {
     this.formHome = this.formBuilder.group({
       usuario: new FormControl('',Validators.compose([

@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>agregarConsolas</ion-title>
+    <ion-title>Agregar consolas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="formConsola">
+    <ion-item>
+      <ion-label position="floating">Nombre:</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+    <div class="mensaje-error">
+      <ng-container *ngFor="let error of mensajesError.nombre">
+        <div *ngIf="formConsola.get('nombre').hasError(error.type) && (formConsola.get('nombre').dirty || formConsola.get('nombre').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Descripción:</ion-label>
+      <ion-input formControlName="descripcion"></ion-input>
+    </ion-item>
+    <div class="mensaje-error">
+      <ng-container *ngFor="let error of mensajesError.descripcion">
+        <div *ngIf="formConsola.get('descripcion').hasError(error.type) && (formConsola.get('descripcion').dirty || formConsola.get('descripcion').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Precio:</ion-label>
+      <ion-input formControlName="precio" type="number"></ion-input>
+    </ion-item>
+    <div class="mensaje-error">
+      <ng-container *ngFor="let error of mensajesError.precio">
+        <div *ngIf="formConsola.get('precio').hasError(error.type) && (formConsola.get('precio').dirty || formConsola.get('precio').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-button expand="full" color="success" (click)="mensajeAgregar()" [disabled]="!formConsola.valid">Agregar Consola</ion-button>
+    <ion-button expand="full" color="primary" (click)="volverMenu()">Volver al menu</ion-button>
+  </form>
 </ion-content>
