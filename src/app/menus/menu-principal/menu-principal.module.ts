@@ -15,6 +15,8 @@ const routes: Routes = [
       { path: 'menu-juegos', loadChildren: '../menu-juegos/menu-juegos.module#MenuJuegosPageModule' },
       { path: 'menu-celulares', loadChildren: '../menu-celulares/menu-celulares.module#MenuCelularesPageModule' },
       { path: 'menu-consolas', loadChildren: '../menu-consolas/menu-consolas.module#MenuConsolasPageModule' },
+      { path: 'menu-base', loadChildren: '../menu-base/menu-base.module#MenuBasePageModule' },
+      { path: 'contacto', loadChildren: '../contacto/contacto.module#ContactoPageModule' },
     ]
   },
   {

@@ -29,7 +29,7 @@ export class LoginPage {
     });
   }
   ingresarMenu(){
-    this.router.navigate(['/menu-principal']);
+    this.router.navigate(['/menu-principal/menu-base']);
   }
   procesarDatos(){
     if (this.formHome.value.usuario == "admin" && this.formHome.value.password == "admin"){
