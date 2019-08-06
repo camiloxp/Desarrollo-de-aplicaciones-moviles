@@ -1,12 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="centrar-titulos">Menu Celulares</ion-title>
+    <ion-title class="centrar-titulos">Celulares</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <br>
-  <ion-button expand="full" color="secondary" routerLink="/agregar-celulares">Agregar Celular</ion-button>
-  <br>
-  <ion-button expand="full" color="tertiary">Ver Celulares</ion-button>
-</ion-content>
+
+
+<ion-content fullscreen>
+    <ion-card>
+      <ion-card-header>
+        <ion-label>Seleccione su opción</ion-label>        
+        
+      </ion-card-header>
+      <ion-card-content>
+          <ion-button class="ion-no-margin ion-margin-end" expand="" color="secondary" routerLink="/agregar-celulares">Agregar Celular</ion-button>
+          <ion-button class="ion-no-margin ion-margin-start" expand="" color="tertiary" routerLink="/listar-celulares">Ver Celulares</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+
+

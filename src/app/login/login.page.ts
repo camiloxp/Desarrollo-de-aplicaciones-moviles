@@ -8,14 +8,22 @@ import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
+  mensajError = {
+    'usuario' : [
+      { type:'required', message:'Usuario incompleto'},
+    ],
+    'password' : [
+      { type:'required', message:'Contraseña incompleta'}
+    ]
 
+  };
   formHome:FormGroup;
   constructor(private formBuilder:FormBuilder,private router:Router) {
     this.formHome = this.formBuilder.group({
       usuario: new FormControl('',Validators.compose([
         Validators.required
       ])),
-      contraseña: new FormControl('',Validators.compose([
+      password: new FormControl('',Validators.compose([
         Validators.required
       ]))
     });
@@ -24,10 +32,10 @@ export class LoginPage {
     this.router.navigate(['/menu-principal']);
   }
   procesarDatos(){
-    if (this.formHome.value.usuario == "admin" && this.formHome.value.contraseña == "123"){
+    if (this.formHome.value.usuario == "admin" && this.formHome.value.password == "admin"){
       this.ingresarMenu()
     }else{
-      this.mensajError = "Error credenciales incorrectas"
+      //this.mensajError = "Error credenciales incorrectas"
     };
   }
 

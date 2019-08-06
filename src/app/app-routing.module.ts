@@ -8,6 +8,13 @@ const routes: Routes = [
   { path: 'agregar-celulares', loadChildren: './agregar/agregar-celulares/agregar-celulares.module#AgregarCelularesPageModule' },
   { path: 'agregar-consolas', loadChildren: './agregar/agregar-consolas/agregar-consolas.module#AgregarConsolasPageModule' },
   { path: 'agregar-juegos', loadChildren: './agregar/agregar-juegos/agregar-juegos.module#AgregarJuegosPageModule' },
+  { path: 'listar-celulares', loadChildren: './listar/listar-celulares/listar-celulares.module#ListarCelularesPageModule' },
+  { path: 'listar-consolas', loadChildren: './listar/listar-consolas/listar-consolas.module#ListarConsolasPageModule' },
+  { path: 'listar-juegos', loadChildren: './listar/listar-juegos/listar-juegos.module#ListarJuegosPageModule' },
+
+  
+  
+
 ];
 
 @NgModule({

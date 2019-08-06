@@ -8,17 +8,44 @@
 
 <ion-content>
   <form [formGroup]="formHome">
+    <!--usuario-->
     <ion-item>
       <ion-label position="floating">Usuario:</ion-label>
       <ion-input formControlName="usuario"></ion-input>
     </ion-item>
+    <!--errores de usuario-->
+    <div class="mensaje-error">
+        <ng-container *ngFor="let error of mensajError.usuario">
+          <div *ngIf="(formHome.get('usuario').hasError(error.type) && (formHome.get('usuario').dirty || formHome.get('usuario').touched))">
+            {{ error.message}}
+            
+
+          </div>
+        
+        </ng-container>
+       
+    </div>
+
+    <!--contraseña-->
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input formControlName="contraseña" type="password"></ion-input>
+      <ion-input formControlName="password" type="password"></ion-input>
     </ion-item>
+    <!--errores de contraseña-->
     <div class="mensaje-error">
-      {{ mensajError }}
+        <ng-container *ngFor="let error of mensajError.password">
+          <div *ngIf="(formHome.get('password').hasError(error.type) && (formHome.get('password').dirty || formHome.get('password').touched))">
+            {{ error.message}}
+            
+
+          </div>
+        
+        </ng-container>
     </div>
+
     <ion-button expand="full" color="primary" [disabled]="!formHome.valid" (click)="procesarDatos()">Ingresar</ion-button>
+    <div class="mensaje-error">
+      
+    </div>
   </form>
 </ion-content>
