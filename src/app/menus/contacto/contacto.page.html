@@ -5,33 +5,121 @@
 </ion-header>
 
 <ion-content>
-  <!--Nombre-->
-  <ion-item>
-    <ion-label position="floating">Nombre:</ion-label>
-    <ion-input formControlName="nombre"></ion-input>
-  </ion-item>
-<!--Rut-->
-  <ion-item>
-    <ion-label position="floating">Rut:</ion-label>
-    <ion-input formControlName="rut"></ion-input>
-  </ion-item>
 
-  <!--email-->
-  <ion-item>
-    <ion-label position="floating">Correo:</ion-label>
-    <ion-input formControlName="email"></ion-input>
-  </ion-item>
 
-  <!--Motivo-->
-  <ion-item>
-    <ion-label position="floating">Motivo:</ion-label>
-    <ion-input formControlName="motivo"></ion-input>
-  </ion-item>
 
-  <!--Comentarios-->
-  <ion-item>
-    <ion-label position="floating">Comentarios:</ion-label>
-    <ion-textarea formControlName="comentario"></ion-textarea>
-  </ion-item>
+    <ion-content>
+        <form [formGroup]="formContacto">
+          <ion-card>
+            <ion-card-header>
+
+            </ion-card-header>
+            <ion-card-content>
+              <!--Nombre-->
+          <ion-item>
+              <ion-label position="floating">Nombre:</ion-label>
+              <ion-input formControlName="nombre"></ion-input>
+            </ion-item>
+            <div class="mensaje-error">
+              <ng-container *ngFor="let error of mensajesError.nombre">
+                <div *ngIf="formContacto.get('nombre').hasError(error.type) && (formContacto.get('nombre').dirty || formContacto.get('nombre').touched)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+  
+            <!--Rut-->
+            <ion-item>
+                <ion-label position="floating">Rut:</ion-label>
+                <ion-input formControlName="rut"></ion-input>
+            </ion-item>
+            <div class="mensaje-error">
+              <ng-container *ngFor="let error of mensajesError.rut">
+                <div *ngIf="formContacto.get('rut').hasError(error.type) && (formContacto.get('rut').dirty || formContacto.get('rut').touched)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+            
+  
+            
+             <!--email-->
+            <ion-item>
+              <ion-label position="floating">Correo:</ion-label>
+              <ion-input formControlName="email"></ion-input>
+            </ion-item>
+            <div class="mensaje-error">
+              <ng-container *ngFor="let error of mensajesError.email">
+                <div *ngIf="formContacto.get('email').hasError(error.type) && (formContacto.get('email').dirty || formContacto.get('email').touched)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+  
+              
+            
+
+
+              <ion-list>
+                  
+                  <ion-item>
+                    <ion-label position="floating">Motivo</ion-label>
+                    <ion-select formControlName="motivo"  okText="Okay" cancelText="Dismiss">
+                      <ion-select-option value="reclamo">Reclamo</ion-select-option>
+                      <ion-select-option value="devolución">Devolución</ion-select-option>
+                      <ion-select-option value="consultas">Consultas</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                
+                </ion-list>
+
+
+
+
+
+
+              <div class="mensaje-error">
+                <ng-container *ngFor="let error of mensajesError.motivo">
+                  <div *ngIf="formContacto.get('motivo').hasError(error.type) && (formContacto.get('motivo').dirty || formContacto.get('motivo').touched)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+              
+              
+               <!--Comentarios-->
+              <ion-item>
+                <ion-label position="floating">Comentarios:</ion-label>
+                <ion-textarea formControlName="comentario"></ion-textarea>
+              </ion-item>
+              <div class="mensaje-error">
+                <ng-container *ngFor="let error of mensajesError.comentario">
+                  <div *ngIf="formContacto.get('comentario').hasError(error.type) && (formContacto.get('comentario').dirty || formContacto.get('comentario').touched)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div> 
+              <hr>
+              <br>
+            <ion-button expand="full" color="success" (click)="mensajeAgregar()" [disabled]="!formContacto.valid">Enviar</ion-button>
+            <ion-button expand="full" color="primary" (click)="volverMenu()">Volver al menu</ion-button>
+            </ion-card-content>
+          </ion-card>
+          
+          
+          
+          
+        </form>
+      </ion-content>
+
+
+
+
+  
+ 
+
+
+
+ 
 
 </ion-content>
