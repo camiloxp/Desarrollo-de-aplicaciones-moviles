@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AgregarUsuarioPage implements OnInit {
 
   formUsuario:FormGroup;
+
   mensajesError = {
     'nombreCompleto':[
       { type: 'required',message:'Ingrese su nombre' },
@@ -26,9 +27,13 @@ export class AgregarUsuarioPage implements OnInit {
       { type: 'required',message:'Ingrese su usuario' },
       { type: 'minlength',message:'Ingrese un minimo de 10 caracteres'},
       { type: 'maxlength',message:'Ingrese como maximo 50 caracteres'}
+    ],
+    'correoConfirmar':[
+      { type: 'required',message:'Ingrese su correo'},
+      { type: 'minlength',message:'Ingrese un minimo de 15 caracteres'},
+      { type: 'maxlength',message:'Ingrese como maximo 50 caracteres'}
     ]
   }
-
   constructor(
     private formBuilder:FormBuilder,
     private alertController:AlertController,
@@ -47,7 +52,13 @@ export class AgregarUsuarioPage implements OnInit {
       correo: new FormControl('',Validators.compose([
         Validators.required,
         Validators.minLength(15),
+        Validators.maxLength(50),
+      ])),
+      correoConfirmar: new FormControl('',Validators.compose([
+        Validators.required,
+        Validators.minLength(15),
         Validators.maxLength(50)
+
       ])),
       usuario: new FormControl('',Validators.compose([
         Validators.required,

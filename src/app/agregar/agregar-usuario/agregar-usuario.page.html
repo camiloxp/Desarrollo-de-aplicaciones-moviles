@@ -47,6 +47,17 @@
         </ng-container>
       </div>
       <ion-item>
+        <ion-label position="floating">Confirme Correo Electronico:</ion-label>
+        <ion-input formControlName="correoConfirmar"></ion-input>
+      </ion-item>
+      <div class="mensaje-error">
+        <ng-container *ngFor="let error of mensajesError.correoConfirmar">
+          <div *ngIf="formUsuario.get('correoConfirmar').hasError(error.type) && (formUsuario.get('correoConfirmar').dirty || formUsuario.get('correoConfirmar').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
         <ion-label position="floating">Usuario:</ion-label>
         <ion-input formControlName="usuario"></ion-input>
       </ion-item>
