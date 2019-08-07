@@ -17,6 +17,7 @@ export class LoginPage {
     ]
 
   };
+  msjError:string;
   formHome:FormGroup;
   constructor(private formBuilder:FormBuilder,private router:Router) {
     this.formHome = this.formBuilder.group({
@@ -35,7 +36,7 @@ export class LoginPage {
     if (this.formHome.value.usuario == "admin" && this.formHome.value.password == "admin"){
       this.ingresarMenu()
     }else{
-      //this.mensajError = "Error credenciales incorrectas"
+      this.msjError = "Error credenciales incorrectas"
     };
   }
 
