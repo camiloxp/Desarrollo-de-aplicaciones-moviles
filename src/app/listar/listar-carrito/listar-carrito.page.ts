@@ -15,6 +15,10 @@ export class ListarCarritoPage implements OnInit {
   volver(){
     this.router.navigate(['/menu-principal']);
   }
+
+  pago(){
+    this.router.navigate(['/pago'])
+  }
   async volverMenu(){
     const actionsheet = await this.actionSheetController.create({
       header:'¿Desea volver al menu?',
@@ -38,7 +42,10 @@ export class ListarCarritoPage implements OnInit {
       message:'Pedido Pagado',
       buttons:[
         {
-          text:'Aceptar'
+          text:'Aceptar',
+          handler:()=>{
+            this.pago()
+          }
         }
       ]
     });
