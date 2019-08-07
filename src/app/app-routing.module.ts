@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'listar-consolas', loadChildren: './listar/listar-consolas/listar-consolas.module#ListarConsolasPageModule' },
   { path: 'listar-juegos', loadChildren: './listar/listar-juegos/listar-juegos.module#ListarJuegosPageModule' },
   { path: 'agregar-usuario', loadChildren: './agregar/agregar-usuario/agregar-usuario.module#AgregarUsuarioPageModule' },
+  { path: 'listar-carrito', loadChildren: './listar/listar-carrito/listar-carrito.module#ListarCarritoPageModule' },
 
 ];
 
