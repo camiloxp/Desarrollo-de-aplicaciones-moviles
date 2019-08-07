@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, ActionSheetController } from '@ionic/angular';
+import { AlertController,ActionSheetController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-listar-carrito',
-  templateUrl: './listar-carrito.page.html',
-  styleUrls: ['./listar-carrito.page.scss'],
+  selector: 'app-auspiciadores',
+  templateUrl: './auspiciadores.page.html',
+  styleUrls: ['./auspiciadores.page.scss'],
 })
-export class ListarCarritoPage implements OnInit {
+export class AuspiciadoresPage implements OnInit {
 
-  constructor(private router:Router, private alertController:AlertController, private actionSheetController:ActionSheetController) { }
+  constructor(private router:Router, private actionSheetController:ActionSheetController, alertController:AlertController) { }
 
-  
   volver(){
-    this.router.navigate(['/menu-principal']);
+    this.router.navigate(['/menu-principal/menu-base']);
   }
   async volverMenu(){
     const actionsheet = await this.actionSheetController.create({
@@ -32,10 +31,10 @@ export class ListarCarritoPage implements OnInit {
     });
     await actionsheet.present();
   }
-  async mensajePagar(){
+  async mensajeAgregar(){
     const alerta = await this.alertController.create({
       header:'Confirmación',
-      message:'Pedido Pagado',
+      message:'Comentario enviado',
       buttons:[
         {
           text:'Aceptar'

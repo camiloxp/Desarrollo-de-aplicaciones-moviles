@@ -4,55 +4,61 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
   <form [formGroup]="formJuego">
-    <ion-item>
-      <ion-label position="floating">Nombre:</ion-label>
-      <ion-input formControlName="nombre"></ion-input>
-    </ion-item>
-    <div class="mensaje-error">
-      <ng-container *ngFor="let error of mensajesError.nombre">
-        <div *ngIf="formJuego.get('nombre').hasError(error.type) && (formJuego.get('nombre').dirty || formJuego.get('nombre').touched)">
-          {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-    <ion-item>
-      <ion-label position="floating">Descripción:</ion-label>
-      <ion-input formControlName="descripcion"></ion-input>
-    </ion-item>
-    <div class="mensaje-error">
-      <ng-container *ngFor="let error of mensajesError.descripcion">
-        <div *ngIf="formJuego.get('descripcion').hasError(error.type) && (formJuego.get('descripcion').dirty || formJuego.get('descripcion').touched)">
-          {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-    <ion-item>
-      <ion-label  position="floating">Plataforma:</ion-label>
-        <ion-select multiple formControlName="plataforma" cancel-text="Cancelar" done-text="aceptar">
-          <ion-select-option value="ps4">PS4</ion-select-option>
-          <ion-select-option value="xboxOne">Xbox One</ion-select-option>
-          <ion-select-option value="nintendoSwitch">Nintendo Switch</ion-select-option>
-          <ion-select-option value="pc">PC</ion-select-option>
-        </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Fecha de lanzamiento:</ion-label>
-      <ion-datetime formControlName="fechaLanzamiento" cancel-text="Cancelar" done-text="Aceptar" display-format="DD-MM-YYYY"></ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Precio:</ion-label>
-      <ion-input formControlName="precio" type="number"></ion-input>
-    </ion-item>
-    <div class="mensaje-error">
-      <ng-container *ngFor="let error of mensajesError.precio">
-        <div *ngIf="formJuego.get('precio').hasError(error.type) && (formJuego.get('precio').dirty || formJuego.get('precio').touched)">
-          {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-    <ion-button expand="full" color="success" (click)="mensajeAgregar()" [disabled]="!formJuego.valid">Agregar Juego</ion-button>
-    <ion-button expand="full" color="primary" (click)="volverMenu()">Volver al menu</ion-button>
+    <ion-card>
+      <ion-card-content>
+          <ion-item>
+              <ion-label position="floating">Nombre:</ion-label>
+              <ion-input formControlName="nombre"></ion-input>
+            </ion-item>
+            <div class="mensaje-error">
+              <ng-container *ngFor="let error of mensajesError.nombre">
+                <div *ngIf="formJuego.get('nombre').hasError(error.type) && (formJuego.get('nombre').dirty || formJuego.get('nombre').touched)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+            <ion-item>
+              <ion-label position="floating">Descripción:</ion-label>
+              <ion-input formControlName="descripcion"></ion-input>
+            </ion-item>
+            <div class="mensaje-error">
+              <ng-container *ngFor="let error of mensajesError.descripcion">
+                <div *ngIf="formJuego.get('descripcion').hasError(error.type) && (formJuego.get('descripcion').dirty || formJuego.get('descripcion').touched)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+            <ion-item>
+              <ion-label  position="floating">Plataforma:</ion-label>
+                <ion-select multiple formControlName="plataforma" cancel-text="Cancelar" done-text="aceptar">
+                  <ion-select-option value="ps4">PS4</ion-select-option>
+                  <ion-select-option value="xboxOne">Xbox One</ion-select-option>
+                  <ion-select-option value="nintendoSwitch">Nintendo Switch</ion-select-option>
+                  <ion-select-option value="pc">PC</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Fecha de lanzamiento:</ion-label>
+              <ion-datetime formControlName="fechaLanzamiento" cancel-text="Cancelar" done-text="Aceptar" display-format="DD-MM-YYYY"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Precio:</ion-label>
+              <ion-input formControlName="precio" type="number"></ion-input>
+            </ion-item>
+            <div class="mensaje-error">
+              <ng-container *ngFor="let error of mensajesError.precio">
+                <div *ngIf="formJuego.get('precio').hasError(error.type) && (formJuego.get('precio').dirty || formJuego.get('precio').touched)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+            <hr>
+            <hr>
+            <ion-button expand="full" color="success" (click)="mensajeAgregar()" [disabled]="!formJuego.valid">Agregar Juego</ion-button>
+            <ion-button expand="full" color="primary" (click)="volverMenu()">Volver al menu</ion-button>
+      </ion-card-content>
+    </ion-card>
   </form>
 </ion-content>

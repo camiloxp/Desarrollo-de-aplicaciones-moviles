@@ -17,7 +17,7 @@
             <ion-label>
               <h2>Galaxy S10 Plus</h2>
               <h3><b>$</b>610.000</h3>
-              <h3>Cantidad:<ion-badge color="primary">10</ion-badge></h3>
+              
               <p>El Galaxy S10 Plus es un celular con hasta 12GB de RAM, 1.5TB de almacenamiento, una gran batería y cámaras versátiles, características que lo hacen un ganador, a pesar de ser perfecto</p>
             </ion-label>
           </ion-item>
@@ -58,7 +58,7 @@
           <h6>Total: <b>$</b>1.368.970</h6>
         </ion-item>
 
-        <ion-button class="ion-margin" expand="full" color="success" routerLink="/pago">Pagar</ion-button>
-        <ion-button class="ion-margin" expand="full" color="primary" routerLink="/menu-principal/menu-base">Volver al menu</ion-button>
+        <ion-button class="ion-margin" expand="full" color="success" (click)="mensajePagar()">Pagar</ion-button>
+        <ion-button class="ion-margin" expand="full" color="primary" (click)="volverMenu()">Volver al menu</ion-button>
     </ion-list>
 </ion-content>

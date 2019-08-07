@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'listar-juegos', loadChildren: './listar/listar-juegos/listar-juegos.module#ListarJuegosPageModule' },
   { path: 'agregar-usuario', loadChildren: './agregar/agregar-usuario/agregar-usuario.module#AgregarUsuarioPageModule' },
   { path: 'listar-carrito', loadChildren: './listar/listar-carrito/listar-carrito.module#ListarCarritoPageModule' },
-  { path: 'pago', loadChildren: './menus/pago/pago.module#PagoPageModule' }
+  { path: 'pago', loadChildren: './menus/pago/pago.module#PagoPageModule' },
+  { path: 'auspiciadores', loadChildren: './menus/auspiciadores/auspiciadores.module#AuspiciadoresPageModule' }
 
 ]
 

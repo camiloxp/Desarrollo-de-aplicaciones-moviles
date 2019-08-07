@@ -64,11 +64,26 @@ export class ContactoPage implements OnInit {
     })
    }
 
-  ngOnInit() {
-  }
-
-  volverMenu(){
+  
+  volver(){
     this.router.navigate(['/menu-principal/menu-base']);
+  }
+  async volverMenu(){
+    const actionsheet = await this.actionSheetController.create({
+      header:'¿Desea volver al menu?',
+      buttons:[
+        {
+          text:'Cancelar'
+        },
+        {
+          text:'Aceptar',
+          handler:()=>{
+            this.volver()  
+          }
+        }
+      ]
+    });
+    await actionsheet.present();
   }
   async mensajeAgregar(){
     const alerta = await this.alertController.create({
@@ -82,5 +97,6 @@ export class ContactoPage implements OnInit {
     });
     await alerta.present();
   }
-
+  ngOnInit() {
+  }
 }
