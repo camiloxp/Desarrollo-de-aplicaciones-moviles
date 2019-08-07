@@ -9,7 +9,7 @@ import { AlertController,ActionSheetController } from '@ionic/angular';
 })
 export class AuspiciadoresPage implements OnInit {
 
-  constructor(private router:Router, private actionSheetController:ActionSheetController, alertController:AlertController) { }
+  constructor(private router:Router, private actionSheetController:ActionSheetController) { }
 
   volver(){
     this.router.navigate(['/menu-principal/menu-base']);
@@ -31,18 +31,7 @@ export class AuspiciadoresPage implements OnInit {
     });
     await actionsheet.present();
   }
-  async mensajeAgregar(){
-    const alerta = await this.alertController.create({
-      header:'Confirmación',
-      message:'Comentario enviado',
-      buttons:[
-        {
-          text:'Aceptar'
-        }
-      ]
-    });
-    await alerta.present();
-  }
+  
   ngOnInit() {
   }
 
