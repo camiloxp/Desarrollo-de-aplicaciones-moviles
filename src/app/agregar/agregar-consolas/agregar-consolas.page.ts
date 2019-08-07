@@ -13,10 +13,14 @@ export class AgregarConsolasPage implements OnInit {
   formConsola:FormGroup;
   mensajesError = {
     'nombre':[
-      { type: 'required',message:'Ingrese nombre del producto' }
+      { type: 'required',message:'Ingrese nombre del producto' },
+      { type: 'minlength',message:'Ingrese un minimo de 10 caracteres'},
+      { type: 'maxlength',message:'Ingrese como maximo 50 caracteres'}
     ],
     'descripcion':[
-      { type: 'required',message:'Ingrese descripcion del producto'}
+      { type: 'required',message:'Ingrese descripcion del producto'},
+      { type: 'minlength',message:'Ingrese un minimo de 10 caracteres'},
+      { type: 'maxlength',message:'Ingrese como maximo 150 caracteres'}
     ],
     'precio':[
       { type: 'required',message:'Ingrese precio del producto' }
@@ -31,10 +35,14 @@ export class AgregarConsolasPage implements OnInit {
    {
     this.formConsola = this.formBuilder.group({
       nombre: new FormControl('',Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(50)
       ])),
       descripcion: new FormControl('',Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(150)
       ])),
       precio: new FormControl('',Validators.compose([
         Validators.required
