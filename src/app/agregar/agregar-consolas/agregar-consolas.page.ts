@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import { AlertController, ActionSheetController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { PrecioValidator } from '../../validators/MaxPrecio.validator';
 
 @Component({
   selector: 'app-agregar-consolas',
@@ -23,7 +24,8 @@ export class AgregarConsolasPage implements OnInit {
       { type: 'maxlength',message:'Ingrese como maximo 150 caracteres'}
     ],
     'precio':[
-      { type: 'required',message:'Ingrese precio del producto' }
+      { type: 'required',message:'Ingrese precio del producto' },
+      { type: 'validarPrecio',message:'Precio excede 1.000.000'}
     ]
   }
 
@@ -45,7 +47,8 @@ export class AgregarConsolasPage implements OnInit {
         Validators.maxLength(150)
       ])),
       precio: new FormControl('',Validators.compose([
-        Validators.required
+        Validators.required,
+        PrecioValidator.validarPrecio
       ]))
     });
   }
