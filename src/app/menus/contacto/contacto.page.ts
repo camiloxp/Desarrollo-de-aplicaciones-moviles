@@ -8,6 +8,7 @@ import { AlertController, ActionSheetController } from '@ionic/angular';
   styleUrls: ['./contacto.page.scss'],
 })
 export class ContactoPage implements OnInit {
+  EMAIL_CONFIRM = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   mensajesError = {
     'nombre' : [
       { type:'required' , message:'Nombre incompleto'},
@@ -23,6 +24,7 @@ export class ContactoPage implements OnInit {
     'email' : [
       { type:'required', message:'Email incompleto'},
       { type:'minlength', message:'Ingrese un minimo de 5 caracteres'},
+      { type:'pattern' , message:"Ingrese un email válido"}
       
 
     ],
@@ -51,7 +53,8 @@ export class ContactoPage implements OnInit {
       ])),
       email: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(5),
+        Validators.pattern(this.EMAIL_CONFIRM)
       ])),
       motivo: new FormControl('', Validators.compose([
         Validators.required
@@ -91,7 +94,10 @@ export class ContactoPage implements OnInit {
       message:'Comentario enviado',
       buttons:[
         {
-          text:'Aceptar'
+          text:'Aceptar',
+          handler:()=>{
+            this.volver()
+          }
         }
       ]
     });

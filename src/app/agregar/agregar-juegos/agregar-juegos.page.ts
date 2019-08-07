@@ -85,7 +85,10 @@ export class AgregarJuegosPage implements OnInit {
         message:'Producto agregado correctamente',
         buttons:[
           {
-            text:'Aceptar'
+            text:'Aceptar',
+            handler:()=>{
+              this.volver()
+            }
           }
         ]
       });

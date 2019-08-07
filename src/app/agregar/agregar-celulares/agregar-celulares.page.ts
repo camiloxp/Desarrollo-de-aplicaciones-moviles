@@ -82,7 +82,10 @@ export class AgregarCelularesPage implements OnInit {
        message:'Producto agregado correctamente',
        buttons:[
          {
-           text:'Aceptar'
+           text:'Aceptar',
+           handler:()=>{
+             this.volver()
+           }
          }
        ]
      });

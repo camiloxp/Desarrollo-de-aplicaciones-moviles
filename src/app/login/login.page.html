@@ -8,7 +8,9 @@
 
 <ion-content>
   <form [formGroup]="formHome">
-    <!--usuario-->
+    <ion-card>
+      <ion-card-content>
+        <!--usuario-->
     <ion-item>
       <ion-label position="floating">Usuario:</ion-label>
       <ion-input formControlName="usuario"></ion-input>
@@ -44,6 +46,10 @@
     </div>
 
     <ion-button expand="full" color="primary" [disabled]="!formHome.valid" (click)="procesarDatos()">Ingresar</ion-button>
-    
+    <div class="mensaje-error">
+      {{ msjError }}
+    </div>
+      </ion-card-content>
+    </ion-card>
   </form>
 </ion-content>

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./agregar-usuario.page.scss'],
 })
 export class AgregarUsuarioPage implements OnInit {
-
+  EMAIL_CONFIRM = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   formUsuario:FormGroup;
 
   mensajesError = {
@@ -21,18 +21,15 @@ export class AgregarUsuarioPage implements OnInit {
     'correo':[
       { type: 'required',message:'Ingrese su correo'},
       { type: 'minlength',message:'Ingrese un minimo de 15 caracteres'},
-      { type: 'maxlength',message:'Ingrese como maximo 50 caracteres'}
+      { type: 'maxlength',message:'Ingrese como maximo 50 caracteres'},
+      { type:'pattern' , message:"Ingrese un email válido"}
     ],
     'usuario':[
       { type: 'required',message:'Ingrese su usuario' },
       { type: 'minlength',message:'Ingrese un minimo de 10 caracteres'},
       { type: 'maxlength',message:'Ingrese como maximo 50 caracteres'}
-    ],
-    'correoConfirmar':[
-      { type: 'required',message:'Ingrese su correo'},
-      { type: 'minlength',message:'Ingrese un minimo de 15 caracteres'},
-      { type: 'maxlength',message:'Ingrese como maximo 50 caracteres'}
     ]
+    
   }
   constructor(
     private formBuilder:FormBuilder,
@@ -53,12 +50,7 @@ export class AgregarUsuarioPage implements OnInit {
         Validators.required,
         Validators.minLength(15),
         Validators.maxLength(50),
-      ])),
-      correoConfirmar: new FormControl('',Validators.compose([
-        Validators.required,
-        Validators.minLength(15),
-        Validators.maxLength(50)
-
+        Validators.pattern(this.EMAIL_CONFIRM)
       ])),
       usuario: new FormControl('',Validators.compose([
         Validators.required,
@@ -102,7 +94,10 @@ export class AgregarUsuarioPage implements OnInit {
       message:'Usuario agregado correctamente',
       buttons:[
         {
-          text:'Aceptar'
+          text:'Aceptar',
+          handler:()=>{
+            this.volver()
+          }
         }
       ]
     });
